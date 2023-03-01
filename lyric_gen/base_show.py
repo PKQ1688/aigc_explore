@@ -20,15 +20,15 @@ if "t5_pipeline" not in st.session_state:
     st.session_state["t5_pipeline"] = Text2TextGenerationPipeline(st.session_state["t5_model"],
                                                                   st.session_state['t5_token'])
 
-if "gpt_token" not in st.session_state:
-    st.session_state['gpt_token'] = BertTokenizer.from_pretrained("model/language_model/gpt2-chinese-lyric")
-
-if "gpt_model" not in st.session_state:
-    st.session_state["gpt_model"] = GPT2LMHeadModel.from_pretrained("model/language_model/gpt2-chinese-lyric")
-
-if "gpt_pipeline" not in st.session_state:
-    st.session_state["gpt_pipeline"] = Text2TextGenerationPipeline(st.session_state["gpt_model"],
-                                                                   st.session_state['gpt_token'])
+# if "gpt_token" not in st.session_state:
+#     st.session_state['gpt_token'] = BertTokenizer.from_pretrained("model/language_model/gpt2-chinese-lyric")
+#
+# if "gpt_model" not in st.session_state:
+#     st.session_state["gpt_model"] = GPT2LMHeadModel.from_pretrained("model/language_model/gpt2-chinese-lyric")
+#
+# if "gpt_pipeline" not in st.session_state:
+#     st.session_state["gpt_pipeline"] = Text2TextGenerationPipeline(st.session_state["gpt_model"],
+#                                                                    st.session_state['gpt_token'])
 
 tab1, tab2 = st.tabs(["歌词生成器", "歌词续写"])
 
@@ -51,7 +51,7 @@ with tab1:
 with tab2:
     st.text_input(value="最美的不是下雨天，是曾与你躲过雨的屋檐", label="要续写的歌词")
     run = st.button("开始续写")
-    if run:
-        res = st.session_state["gpt_pipeline"]("最美的不是下雨天，是曾与你躲过雨的屋檐", max_length=100, do_sample=True)
-        res = res[0]["generated_text"]
-        st.write(res.replace(" ", ""))
+    # if run:
+    #     res = st.session_state["gpt_pipeline"]("最美的不是下雨天，是曾与你躲过雨的屋檐", max_length=100, do_sample=True)
+    #     res = res[0]["generated_text"]
+    #     st.write(res.replace(" ", ""))
