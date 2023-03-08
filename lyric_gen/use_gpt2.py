@@ -11,5 +11,5 @@ tokenizer = BertTokenizer.from_pretrained("model/language_model/gpt2-chinese-lyr
 model = GPT2LMHeadModel.from_pretrained("model/language_model/gpt2-chinese-lyric")
 
 text_generator = TextGenerationPipeline(model, tokenizer)
-res = text_generator("最美的不是下雨天，是曾与你躲过雨的屋檐", max_length=100, do_sample=True)
+res = text_generator("以“谎言，伤痛，心爱，掩饰，退一步，寻找”为主题写一首歌：", max_length=300, do_sample=True)
 print(res)
